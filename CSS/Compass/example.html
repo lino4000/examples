@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="estilo.css">
+<title>Henrique Lino Pacheco</title>
+<style type="text/css" rel="stylesheet">
+*{margin:0;padding:0;position:relative;}
+html,body{height:100%;}
+body{background:#ccc;}
+
+#wrapper {
+	background:#fff;
+	height:300px;
+	left:50%;
+	margin:-150px 0 0 -150px;
+	top:50%;
+	width:300px;
+}
+
+.compass{
+	background: #fff;
+	background-size: 10px 10px;
+	box-shadow: 1px 1px 5px rgba(255,255,255,0.8),
+							-1px -1px 2px #666, 
+							0 0 0 10px #c90,
+							0 0 8px 12px #aaa,
+							inset 2px 2px 5px #999,
+							inset 0 0 40px #ccc;
+	border-radius: 250px;
+	height: 250px;
+	left: 25px;
+	position: absolute;
+	top:25px;
+	width: 250px;
+	z-index: 1;
+}
+.compass::after{
+	border: 2px dashed rgba(204, 153, 0, 0.7);
+	border-radius: 100px;
+	content:" ";
+	display:block;
+	height:150px;
+	left:50%;
+	margin:-75px 0 0 -75px;
+	position:absolute;
+	top:50%;
+	width:150px;
+	z-index:-10;
+}
+
+.rose{position:absolute;z-index:1;}
+
+.rose.n, .rose.e, .rose.w, .rose.s{overflow: hidden;z-index: -1;}
+.rose.n{-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);left: 46px;top: -67px;}
+.rose.e{-webkit-transform: rotate(135deg);-moz-transform: rotate(135deg);right: -69px;top: 45px;}
+.rose.w{-webkit-transform: rotate(-44deg);-moz-transform: rotate(-44deg);left: -67px;top: 44px;}
+.rose.s{-webkit-transform: rotate(225deg);-moz-transform: rotate(225deg);bottom: -68px;left: 46px;}
+
+.rose.n::after{content: "N" !important;}
+.rose.e::after{content: "E" !important;}
+.rose.w::after{content: "W" !important;}
+.rose.n::after, .rose.e::after, .rose.w::after, .rose.s::after{
+	content: "S";
+	position: absolute;
+	left: 46%;
+	display: block;
+	top: 46%;
+	color: #c90;
+	font: bold 16px/19px Arial;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	background: #fff;
+	border: 2px solid #d90;
+	border-radius: 14px;
+	width: 20px;
+	text-align: center;
+}
+
+.rose.nw-se{-webkit-transform: rotate(0deg) !important;-moz-transform: rotate(0deg) !important;}
+.rose.ne-sw, .rose.nw-se{-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);left: 66px;top: 65px;z-index:-5;}
+
+/*
+.rose.nne-ssw, .rose.nnw-sse, .rose.nww-see, .rose.nee-sww{left: 76px;top: 75px;}
+.rose.nne-ssw{-webkit-transform: rotate(67.5deg);}
+.rose.nnw-sse{-webkit-transform: rotate(22.5deg);}
+.rose.nww-see{-webkit-transform: rotate(-22.5deg);}
+.rose.nee-sww{-webkit-transform: rotate(112.5deg);}
+*/
+
+.rose-b{bottom: -79px;right: -79px;}
+.rose-m{border-width: 60px !important;}
+/*
+.rose-s{border-width: 50px !important;}
+*/
+.rose .rose-b, .rose .rose-m, .rose .rose-s{
+	-webkit-transform: rotate(-35deg) rotateX(44deg) rotateY(75deg);
+	-moz-transform: rotate(-35deg) rotateX(44deg) rotateY(75deg);
+	border-width: 80px;
+	border-style: solid;
+	border-color: #444 #e0e0e0;
+	height: 0;
+	width: 0;
+	z-index:-1;
+}
+
+.pointer::before{
+	box-shadow: 1px 1px 6px #000;
+	content: " ";
+	display: block;
+	height: 166px;
+	left:1px;
+	position: relative;
+	top: -80px;
+	width: 4px;
+	z-index:-1;
+}
+.pointer{box-shadow: 1px 1px 6px #000;}
+.pointer .white::after{z-index:1;margin:-8px 0 0 -3px !important;}
+.pointer, .pointer .white::after{
+	background: #eee;
+	border: 2px solid #f00;
+	border-radius: 10px;
+	box-sizing: border-box;
+	content:" ";
+	display:block;
+	height: 10px;
+	left: 50%;
+	margin: -4px 0 0 -4px;
+	top: 50%;
+	width: 10px;
+}
+
+.pointer .white{background: #fff !important;top: 6px !important;}
+.pointer .red, .pointer .white{
+	display: block;
+	content: " ";
+	background: #f00;
+	height: 80px;
+	width: 4px;
+	left:1px;
+	position: absolute;
+	top: -80px;
+}
+
+@-webkit-keyframes bounce {
+ 0%{-webkit-transform:rotate(0deg)}
+    12%{-webkit-transform:rotate(30deg);}
+    35%{-webkit-transform:rotate(-20deg);}
+    65%{-webkit-transform:rotate(10deg);}
+    100%{-webkit-transform:rotate(0deg);}
+}
+
+@-moz-keyframes bounce {
+ 0%{-moz-transform:rotate(0deg)}
+    12%{-moz-transform:rotate(30deg);}
+    35%{-moz-transform:rotate(-20deg);}
+    65%{-moz-transform:rotate(10deg)}
+    100%{-moz-transform:rotate(0deg)}
+}
+
+.compass:hover .pointer { 
+    -moz-animation: bounce 2s;
+    -webkit-animation: bounce 2s;
+    animation: bounce 2s;
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+	<div class="compass">
+		<div class="rose n"><div class="rose-b"></div></div>
+		<div class="rose e"><div class="rose-b"></div></div>
+		<div class="rose w"><div class="rose-b"></div></div>
+		<div class="rose s"><div class="rose-b"></div></div>
+		<div class="rose ne-sw"><div class="rose-m"></div></div>
+		<div class="rose nw-se"><div class="rose-m"></div></div>
+		<!--
+		<div class="rose nne-ssw"><div class="rose-s"></div></div>
+		<div class="rose nnw-sse"><div class="rose-s"></div></div>
+		<div class="rose nee-sww"><div class="rose-s"></div></div>
+		<div class="rose nww-see"><div class="rose-s"></div></div>
+		-->
+		<div class="pointer">
+			<div class="red"></div>
+			<div class="white"></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
